@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Custom="http://infragistics.com/DataPresenter" x:Name="frmppmp" x:Class="Procurement_Module.Forms.frmPPMP"
+        Title="PPMP Portal" Height="668" Width="1200" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="627*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Custom:XamDataGrid x:Name="grdData" Grid.Row="2" GroupByAreaLocation="None" AutoFit="True">
+            <Custom:XamDataGrid.FieldSettings>
+                <Custom:FieldSettings CellClickAction="SelectCell" AllowEdit="False" AllowGroupBy="False"/>
+            </Custom:XamDataGrid.FieldSettings>
+        </Custom:XamDataGrid>
+        <Label Content="Division" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="52" Grid.Row="1" Margin="0,2,0,0"/>
+        <ComboBox x:Name="cmbDivisions" HorizontalAlignment="Left" Margin="50,5,0,0" Width="351" Grid.Row="1" Height="22" VerticalAlignment="Top"/>
+        <Button x:Name="btnPPMPPrintout" Content="Generate PPMP" Margin="457,2,0,0" HorizontalAlignment="Left" Width="90" RenderTransformOrigin="0.5,0.5" Click="btnPPMPPrintout_Click" Grid.Row="1" Height="24" VerticalAlignment="Top"/>
+        <Button x:Name="btnPPMPPrintout_Copy" Content="Consolidated PPMP" Margin="550,2,0,0" HorizontalAlignment="Left" Width="126" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Height="24" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Label Content="Mindanao Development Authority" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="313" Margin="0,-3,0,0"/>
+        <Label Content="PROJECT PROCUREMENT MANAGEMENT PLAN (PPMP)" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="313" Margin="0,14,0,0" Grid.RowSpan="2"/>
+        <Button x:Name="btnPrintPreview" Content="Print Preview" Margin="0,3,6,2" RenderTransformOrigin="0.5,0.5" Click="btnPrintPreview_Click" Grid.Row="3" HorizontalAlignment="Right" Width="90"/>
+        <CheckBox x:Name="chkCSE" Content="CSE" HorizontalAlignment="Left" Margin="405,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="btnAnnexA" Content="Generate Annex A" Margin="679,2,0,0" HorizontalAlignment="Left" Width="137" RenderTransformOrigin="0.5,0.5" Click="btnAnnexA_Click" Grid.Row="1" Height="24" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Button x:Name="btnAnnexB" Content="Generate Annex B" Margin="821,3,0,0" HorizontalAlignment="Left" Width="137" RenderTransformOrigin="0.5,0.5" Click="btnAnnexB_Click" Grid.Row="1" Height="24" VerticalAlignment="Top" Visibility="Collapsed"/>
+
+    </Grid>
+</Window>

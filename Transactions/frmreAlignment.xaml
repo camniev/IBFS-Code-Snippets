@@ -1,0 +1,62 @@
+﻿<sdk:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+  
+            xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml" x:Name="frmReAlignment" x:Class="MinDAF.Forms.frmreAlignment"
+  
+            HasCloseButton="False" BorderThickness="0" Background="#FFD9EDF7" Width="1095.146" Height="557.2" Loaded="frmReAlignment_Loaded">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="498*"/>
+            <ColumnDefinition Width="486*"/>
+            <ColumnDefinition Width="91*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="164*" />
+            <RowDefinition Height="119*"/>
+            <RowDefinition Height="243*"/>
+            <RowDefinition Height="9.678"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Close" Click="CancelButton_Click" Width="75" HorizontalAlignment="Right" Margin="0,67,8,68" Grid.Column="2" />
+        <Button x:Name="OKButton" Content="Add" Click="OKButton_Click" Width="75" HorizontalAlignment="Right" Margin="0,27,10,108" Grid.Column="2" />
+        <Grid Grid.RowSpan="2">
+            <sdk:Label HorizontalAlignment="Left" Height="21" Margin="10,53,0,0" VerticalAlignment="Top" Width="324" Content="Select Procurement To Realign"/>
+            <Rectangle Margin="10,74,10,8" Fill="#72FFFFFF"/>
+            <sdk:Label HorizontalAlignment="Left" Height="21" Margin="10,5,0,0" VerticalAlignment="Top" Width="324" Content="Select Year"/>
+            <ComboBox x:Name="cmbFundSource" HorizontalAlignment="Left" Height="24" Margin="164,23,0,0" VerticalAlignment="Top" Width="324" DropDownClosed="cmbFundSource_DropDownClosed"/>
+            <sdk:Label HorizontalAlignment="Left" Height="21" Margin="166,5,0,0" VerticalAlignment="Top" Width="128" Content="Select Fund Source"/>
+            <ComboBox x:Name="cmbYear" HorizontalAlignment="Left" Height="24" Margin="11,23,0,0" VerticalAlignment="Top" Width="148"/>
+        </Grid>
+        <Grid Grid.RowSpan="2" Margin="5,0,0,0" Grid.Column="1">
+
+            <sdk:Label HorizontalAlignment="Left" Height="21" Margin="10,6,0,0" VerticalAlignment="Top" Width="324" Content="Data Realignment "/>
+            <Rectangle Margin="10,25,10,7" Fill="#72FFFFFF"/>
+            <sdk:Label HorizontalAlignment="Left" Height="21" Margin="24,35,0,0" VerticalAlignment="Top" Width="185" Content="Remaining Balance Amount" FontFamily="Calibri" FontSize="13"/>
+            <sdk:Label HorizontalAlignment="Left" Height="21" Margin="24,209,0,0" VerticalAlignment="Top" Width="185" Content="Total Realigned Amount" FontFamily="Calibri" FontSize="13"/>
+            <ig:XamNumericInput x:Name="txtProcAmount" HorizontalAlignment="Left" Height="23" Margin="202,36,0,0" VerticalAlignment="Top" Width="260" FontFamily="Calibri" FontSize="13" IsReadOnly="True"/>
+            <ig:XamNumericInput x:Name="txtRelAmount" HorizontalAlignment="Left" Height="23" Margin="202,208,0,0" VerticalAlignment="Top" Width="260" FontFamily="Calibri" FontSize="13" ValueChanged="txtRelAmount_ValueChanged"/>
+            <Button x:Name="btnAlignment" Content="Generate Realignment"  Width="260" HorizontalAlignment="Right" Margin="0,223,19,37" Click="btnAlignment_Click" IsEnabled="False" Visibility="Collapsed" />
+            <sdk:Label HorizontalAlignment="Left" Height="21" Margin="24,170,0,0" VerticalAlignment="Top" Width="185" Content="Select Month" FontFamily="Calibri" FontSize="13"/>
+            <ComboBox x:Name="cmbMonths" HorizontalAlignment="Left" Height="24" Margin="202,165,0,0" VerticalAlignment="Top" Width="260"/>
+            <sdk:Label HorizontalAlignment="Left" Height="21" Margin="24,77,0,0" VerticalAlignment="Top" Width="128" Content="Select Activity"/>
+            <ComboBox x:Name="cmbActivity" HorizontalAlignment="Left" Height="24" Margin="202,77,0,0" VerticalAlignment="Top" Width="260" DropDownClosed="cmbActivity_DropDownClosed"/>
+            <ComboBox x:Name="cmbData" HorizontalAlignment="Left" Height="24" Margin="202,118,0,0" VerticalAlignment="Top" Width="260"/>
+            <sdk:Label HorizontalAlignment="Left" Height="21" Margin="24,125,0,0" VerticalAlignment="Top" Width="185" Content="Select Expenditure Item" FontFamily="Calibri" FontSize="13"/>
+        </Grid>
+        <ig:XamGrid x:Name="grdData" Margin="16,79,18,14" Grid.RowSpan="2" ColumnWidth="1*" CellClicked="grdData_CellClicked">
+            <ig:XamGrid.SelectionSettings>
+                <ig:SelectionSettings CellClickAction="SelectRow" CellSelection="None"/>
+            </ig:XamGrid.SelectionSettings>
+        </ig:XamGrid>
+        <Rectangle Margin="10,16,10,1.322" Fill="#72FFFFFF" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <sdk:Label HorizontalAlignment="Left" Height="21" Margin="13,114,0,0" VerticalAlignment="Top" Width="185" Content="Realignment Record" FontFamily="Calibri" FontSize="13" Grid.Row="1" Grid.RowSpan="2"/>
+        <ig:XamGrid x:Name="grdAlignment" Grid.ColumnSpan="2" Margin="16,23,20,8" Grid.Row="2" ColumnWidth="1*">
+            <ig:XamGrid.SelectionSettings>
+                <ig:SelectionSettings CellClickAction="SelectRow" CellSelection="None"/>
+            </ig:XamGrid.SelectionSettings>
+        </ig:XamGrid>
+        <Button x:Name="bntRemove" Content="Remove" Click="bntRemove_Click" Width="75" HorizontalAlignment="Right" Margin="0,23,8,191" Grid.Column="2" Grid.Row="2" />
+    </Grid>
+</sdk:ChildWindow>

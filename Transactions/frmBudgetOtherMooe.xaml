@@ -1,0 +1,94 @@
+﻿<controls:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" x:Name="frm_b_other" x:Class="MinDAF.Forms.frmBudgetOtherMooe"
+           Width="1200" Height="677" 
+           Title="frmBudgetOtherMooe" Closed="frm_b_other_Closed" Loaded="frm_b_other_Loaded">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="338*"/>
+            <ColumnDefinition Width="311*"/>
+            <ColumnDefinition Width="429*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="433*" />
+            <RowDefinition Height="205*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnAdd" Content="Add" Click="btnAdd_Click" Margin="1,27,0,380" Grid.Column="3" />
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="6,321,0,0" VerticalAlignment="Top" Width="291" Content="Remarks (Input Description of Expense Item)" Grid.Column="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="4,8,0,0" VerticalAlignment="Top" Width="164" Content="Daily Expense Rate (Php)" Grid.Column="1" Visibility="Collapsed"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="10,73,0,0" VerticalAlignment="Top" Width="141" Content="No. of Participants           " Grid.Column="1" Visibility="Collapsed"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="12,164,0,0" VerticalAlignment="Top" Width="141" Content="No. of Days           " Grid.Column="1" Visibility="Collapsed"/>
+        <sdk:Label Width="105" VerticalAlignment="Top" Margin="10,250,0,0" Height="23" HorizontalAlignment="Left" Content="Total" Grid.Column="1" Visibility="Collapsed"/>
+        <!--<ig:XamNumericInput x:Name="txtTotal" HorizontalAlignment="Left" Margin="10,273,0,0" VerticalAlignment="Top" Width="197" Grid.Column="2" Visibility="Collapsed" Height="22"/>-->
+        <ig:XamNumericInput x:Name="txtDailyRate" HorizontalAlignment="Left" Margin="4,27,0,0" VerticalAlignment="Top" Width="198" ValueChanged="txtDailyRate_ValueChanged" Height="26" Grid.Column="1" Visibility="Collapsed"/>
+        <TextBox x:Name="txtRemark" Margin="10,342,10,10" TextWrapping="Wrap" Grid.Column="1"/>
+        <toolkit:NumericUpDown x:Name="nudProfService" HorizontalAlignment="Left" Height="28" Margin="7,101,0,0" VerticalAlignment="Top" Width="195" FontSize="17" Value="1" ValueChanging="nudProfService_ValueChanging" Grid.Column="1" Maximum="10000" Visibility="Collapsed"/>
+        <!--<toolkit:NumericUpDown x:Name="nudDays" HorizontalAlignment="Left" Height="28" Margin="7,192,0,0" VerticalAlignment="Top" Width="195" FontSize="17" ValueChanging="nudDays_ValueChanging" Value="1" Grid.Column="1" Maximum="10000" Visibility="Collapsed"/>-->
+
+        <!-- Food, Venue, Accom -->
+        <sdk:Label HorizontalAlignment="Left" Height="264" VerticalAlignment="Top" Width="333" Background="#FFEAEAEA" FontWeight="Bold" Margin="0,-1,0,0">
+            <CheckBox x:Name="chkCateringServices" Content="Catering Services" Checked="chkCateringServices_Checked" Unchecked="chkCateringServices_Unchecked"/>
+        </sdk:Label>
+        <sdk:Label HorizontalAlignment="Left" Height="18" Margin="21,24,0,0" VerticalAlignment="Top" Width="120" Content="Breakfast"/>
+        <sdk:Label HorizontalAlignment="Left" Height="18" Margin="21,59,0,0" VerticalAlignment="Top" Width="120" Content="AM Snacks"/>
+        <sdk:Label HorizontalAlignment="Left" Height="18" Margin="21,94,0,0" VerticalAlignment="Top" Width="120" Content="Lunch"/>
+        <sdk:Label HorizontalAlignment="Left" Height="18" Margin="21,129,0,0" VerticalAlignment="Top" Width="120" Content="PM Snacks"/>
+        <sdk:Label HorizontalAlignment="Left" Height="18" Margin="21,164,0,0" VerticalAlignment="Top" Width="120" Content="Dinner"/>
+        <ig:XamNumericInput x:Name="txtBreakfastAmnt" HorizontalAlignment="Left" Margin="20,40,0,0" VerticalAlignment="Top" Width="291" Height="19" TextChanged="txtBreakfastAmnt_TextChanged"/>
+        <ig:XamNumericInput x:Name="txtAMSnacksAmnt" HorizontalAlignment="Left" Margin="20,75,0,0" VerticalAlignment="Top" Width="291" Height="19" TextChanged="txtAMSnacksAmnt_TextChanged"/>
+        <ig:XamNumericInput x:Name="txtLunchAmnt" HorizontalAlignment="Left" Margin="20,110,0,0" VerticalAlignment="Top" Width="291" Height="19" TextChanged="txtLunchAmnt_TextChanged" />
+        <ig:XamNumericInput x:Name="txtPMSnacksAmnt" HorizontalAlignment="Left" Margin="20,145,0,0" VerticalAlignment="Top" Width="291" Height="19" TextChanged="txtPMSnacksAmnt_TextChanged"/>
+        <ig:XamNumericInput x:Name="txtDinnerAmnt" HorizontalAlignment="Left" Margin="19,182,0,0" VerticalAlignment="Top" Width="292" Height="19" TextChanged="txtDinnerAmnt_TextChanged"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="120" Content="No. of Participants" Margin="20,203,0,0"/>
+        <toolkit:NumericUpDown x:Name="nudCateringNo" HorizontalAlignment="Left" Height="27" Margin="20,223,0,0" VerticalAlignment="Top" Width="291" FontSize="14" Value="1" Maximum="10000" ValueChanging="nudCateringNo_ValueChanging"/>
+
+        <sdk:Label HorizontalAlignment="Left" Height="83" VerticalAlignment="Top" Width="333" Background="#FFEAEAEA" FontWeight="Bold" Margin="0,273,0,0">
+            <CheckBox Content="Venue" x:Name="chkVenue" Checked="chkVenue_Checked" Unchecked="chkVenue_Unchecked"/>
+        </sdk:Label>
+        <sdk:Label HorizontalAlignment="Left" Height="18" Margin="22,300,0,0" VerticalAlignment="Top" Width="120" Content="Venue Daily Rate"/>
+        <ig:XamNumericInput x:Name="txtVenueDailyRate" HorizontalAlignment="Left" Margin="21,320,0,0" VerticalAlignment="Top" Width="291" Height="24" TextChanged="txtVenueDailyRate_TextChanged" />
+
+        <sdk:Label HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="298" Background="#FFEAEAEA" FontWeight="Bold" Margin="6,0,0,0" Grid.Column="1">
+            <CheckBox Content="Hotel Accommodation" x:Name="chkHotelAccom" Checked="chkHotelAccom_Checked" Unchecked="chkHotelAccom_Unchecked"/>
+        </sdk:Label>
+        <sdk:Label HorizontalAlignment="Left" Height="18" Margin="20,20,0,0" VerticalAlignment="Top" Width="120" Content="Accommodation Rate" Grid.Column="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="120" Content="No. of Participants" Margin="19,60,0,0" Grid.Column="1"/>
+        <ig:XamNumericInput x:Name="txtAccomRate" HorizontalAlignment="Left" Margin="19,41,0,0" VerticalAlignment="Top" Width="278" Height="19" Grid.Column="1" TextChanged="txtAccomRate_TextChanged"/>
+        <toolkit:NumericUpDown x:Name="nudAccomNo" HorizontalAlignment="Left" Height="27" Margin="20,76,0,0" VerticalAlignment="Top" Width="277" FontSize="14" Value="1" Maximum="10000" Grid.Column="1" ValueChanging="nudAccomNo_ValueChanging"/>
+        <sdk:Label Visibility="Visible" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="120" Content="No. of Training Days" Margin="10,114,0,0" Grid.Column="1"/>
+        <toolkit:NumericUpDown Visibility="Visible" x:Name="nudDays" HorizontalAlignment="Left" Height="30" Margin="6,131,0,0" VerticalAlignment="Top" Width="294" FontSize="17" ValueChanging="nudDays_ValueChanging" Value="1" Grid.Column="1" Maximum="10000"/>
+
+        <sdk:Label HorizontalAlignment="Left" Height="148" VerticalAlignment="Top" Width="298" Background="#FFE0E0E0" FontWeight="Bold" Margin="4,173,0,0" Grid.Column="1">
+            <CheckBox Content="Purified Drinking Water" x:Name="chkPurified" Checked="chkPurified_Checked" Unchecked="chkPurified_Unchecked"/>
+        </sdk:Label>
+        <sdk:Label HorizontalAlignment="Left" Height="18" Margin="16,232,0,0" VerticalAlignment="Top" Width="120" Content="Price" Grid.Column="1"/>
+        <ig:XamNumericInput x:Name="txtPrice" HorizontalAlignment="Left" Margin="15,246,0,0" VerticalAlignment="Top" Width="278" Height="19" Grid.Column="1" TextChanged="txtPrice_TextChanged"/>
+        <sdk:Label HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="155" Content="No. of bottles/gallons" Margin="15,269,0,0" Grid.Column="1"/>
+        <toolkit:NumericUpDown x:Name="nudNoOfPiece" HorizontalAlignment="Left" Height="27" Margin="16,288,0,0" VerticalAlignment="Top" Width="277" FontSize="14" Value="1" Maximum="10000" Grid.Column="1" ValueChanging="nudNoOfPiece_ValueChanging"/>
+
+        <ig:XamGrid x:Name="grdData" Grid.Row="1" ColumnWidth="3*" Grid.ColumnSpan="3" Margin="0,0,10,0"/>
+        <Grid x:Name="grdBR" Grid.Column="2" Margin="0,0,0,68"/>
+        <sdk:Label HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="171" Content="Total" Margin="7,365,0,0" Grid.Column="2"/>
+        <ig:XamNumericInput x:Name="txtTotal" HorizontalAlignment="Left" Margin="7,382,0,0" VerticalAlignment="Top" Width="412" Height="41" Grid.Column="2" IsReadOnly="True" FontSize="22" Background="White" Foreground="Red"/>
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Margin="0,58,0,348" Grid.Column="3" />
+        <Image Grid.Column="3" Margin="18,131,16,13" Source="/MinDAF;component/Image/sigil.png" Stretch="Fill" Grid.Row="1"/>
+        <Button x:Name="btnSuspend" Content="Remove" Margin="1,6,10,0" Background="#FF1F3B4B" Grid.Column="3" Foreground="White" FontSize="14" FontFamily="Calibri" Height="38" Grid.Row="1" VerticalAlignment="Top" Click="btnSuspend_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" Background="#FF449D44">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <RadioButton x:Name="procureRadioBtn" Content="Procure this item" Grid.Column="2" HorizontalAlignment="Left" Margin="10,282,0,0" VerticalAlignment="Top" Visibility="Collapsed" Height="17" Width="115"/>
+        <sdk:Label HorizontalAlignment="Left" Height="18" Margin="16,191,0,0" VerticalAlignment="Top" Width="120" Content="Unit" Grid.Column="1"/>
+        <ComboBox x:Name="cmbUnit" Grid.Column="1" HorizontalAlignment="Left" Margin="16,206,0,0" VerticalAlignment="Top" Width="277" Height="20">
+            <ComboBoxItem>bottle</ComboBoxItem>
+            <ComboBoxItem>gallon</ComboBoxItem>
+        </ComboBox>
+    </Grid>
+</controls:ChildWindow>

@@ -1,0 +1,46 @@
+﻿<controls:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+            xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" x:Name="frm_b_wages" x:Class="MinDAF.Forms.frmBudgetLaborAndWages"
+            Width="1218.522" Height="557.2" 
+           Title="frmBudgetLaborAndWages" Loaded="frm_b_wages_Loaded" Closed="frm_b_wages_Closed">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="356*"/>
+            <ColumnDefinition Width="246*"/>
+            <ColumnDefinition Width="389*"/>
+            <ColumnDefinition Width="92*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="305*" />
+            <RowDefinition Height="213*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,47,18,0" VerticalAlignment="Top" Grid.Column="3" />
+        <Button x:Name="btnAdd" Content="Add" Click="btnAdd_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,15,18,0" VerticalAlignment="Top" Grid.Column="3" />
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Content="Remarks"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="5,8,0,0" VerticalAlignment="Top" Width="182" Content="Type of Professional Service" Grid.Column="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="5,75,0,0" VerticalAlignment="Top" Width="126" Content="Daily Rate" Grid.Column="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="6,125,0,0" VerticalAlignment="Top" Width="144" Content="No. of Persons     " Grid.Column="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="6,181,0,0" VerticalAlignment="Top" Width="144" Content="No. of Days           " Grid.Column="1"/>
+        <sdk:Label Width="103" VerticalAlignment="Top" Margin="7,252,0,0" Height="23" HorizontalAlignment="Left" Content="Total" Grid.Column="1"/>
+        <ig:XamNumericInput x:Name="txtTotal" HorizontalAlignment="Left" Margin="7,274,0,0" VerticalAlignment="Top" Width="220" Grid.Column="1"/>
+        <ig:XamNumericInput x:Name="txtDailyRate" HorizontalAlignment="Left" Margin="6,94,0,0" VerticalAlignment="Top" Width="221" ValueChanged="txtDailyRate_ValueChanged" Grid.Column="1" IsReadOnly="True"/>
+        <TextBox x:Name="txtRemark" HorizontalAlignment="Left" Height="264" Margin="10,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="380"/>
+        <toolkit:NumericUpDown x:Name="nudProfService" HorizontalAlignment="Left" Height="28" Margin="6,143,0,0" VerticalAlignment="Top" Width="222" FontSize="17" ValueChanging="nudProfService_ValueChanging" Value="1" Grid.Column="1" Maximum="10000" Grid.ColumnSpan="2"/>
+        <toolkit:NumericUpDown x:Name="nudDays" HorizontalAlignment="Left" Height="28" Margin="6,208,0,0" VerticalAlignment="Top" Width="222" FontSize="17" ValueChanging="nudDays_ValueChanging" Value="1" Grid.Column="1" Maximum="10000" Grid.ColumnSpan="2"/>
+        <ig:XamGrid x:Name="grdData" Grid.Row="1" ColumnWidth="3*" Grid.ColumnSpan="3" Margin="0,10,0,-10"/>
+        <ig:XamComboEditor x:Name="cmbProfType" HorizontalAlignment="Left" Height="32" Margin="7,31,0,0" VerticalAlignment="Top" Width="220" AutoComplete="True" FontSize="12" DropDownButtonDisplayMode="MouseOver" DropDownClosed="cmbProfType_DropDownClosed" Grid.Column="1" />
+        <Grid x:Name="grdBR" Grid.Column="2" Margin="6,6,4,36"/>
+        <Button x:Name="btnSuspend" Content="Remove" Margin="17,10,10,165" Background="#FF1F3B4B" Grid.Column="3" Foreground="White" FontSize="14" FontFamily="Calibri" Height="38" Grid.Row="1" Click="btnSuspend_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" Background="#FF449D44">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <RadioButton x:Name="procureRadioBtn" Content="Procure this item" Grid.Column="2" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</controls:ChildWindow>

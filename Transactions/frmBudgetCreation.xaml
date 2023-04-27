@@ -1,0 +1,87 @@
+﻿<controls:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:ig="http://schemas.infragistics.com/xaml" x:Name="frmlocaltravel" x:Class="MinDAF.Forms.frmBudgetCreation"
+             
+           Loaded="frmlocaltravel_Loaded" Closed="frmlocaltravel_Closed" HasCloseButton="False" BorderThickness="0" Background="#FFD9EDF7" Width="1095.146" Height="557.2">
+    <Grid x:Name="LayoutRoot" Margin="2,2,-6,2" HorizontalAlignment="Left" Width="1083">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="356*"/>
+            <ColumnDefinition Width="264*"/>
+            <ColumnDefinition Width="371*"/>
+            <ColumnDefinition Width="92*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="173*" />
+            <RowDefinition Height="156*"/>
+            <RowDefinition Height="173*"/>
+            <RowDefinition Height="24.322" />
+            <RowDefinition Height="9.678"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="CANCEL" Click="CancelButton_Click" Width="77" HorizontalAlignment="Right" Margin="0,61,10,64" BorderThickness="0" Grid.Column="3" Background="#FF1F3B53" Foreground="White" FontSize="14" FontFamily="Calibri">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" Background="#FFD9534F">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnAdd" Content="SAVE" Click="btnAdd_Click" Margin="5,14,10,117" Background="#FF1F3B4B" Grid.Column="3" Foreground="White" FontSize="14" FontFamily="Calibri">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" Background="#FF449D44">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="12,8,0,0" VerticalAlignment="Top" Width="120" Content="Remarks"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="9,148,0,0" VerticalAlignment="Top" Width="136" Content="No. of Staff" Grid.Column="1" Grid.RowSpan="2"/>
+        <sdk:Label HorizontalAlignment="Left" Height="20" Margin="10,126,0,0" VerticalAlignment="Top" Width="186" Content="Destination"/>
+        <sdk:Label HorizontalAlignment="Left" Height="13" Margin="11,0,0,0" VerticalAlignment="Top" Width="186" Content="Accommodation Type" Grid.Row="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="9,36,0,0" VerticalAlignment="Top" Width="223" Content="No. of Days" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="txtRemark" Margin="12,24,10,48" TextWrapping="Wrap" FontFamily="Calibri" FontSize="14"/>
+        <TextBox x:Name="txtStaff" Height="28" Margin="9,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="0" TextChanged="txtStaff_TextChanged" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Width="244" Grid.Column="1" FontFamily="Calibri" FontSize="14" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtDays" HorizontalAlignment="Left" Height="28" Margin="9,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Text="0" TextChanged="txtDays_TextChanged" HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="1" FontFamily="Calibri" FontSize="14" IsReadOnly="True"/>
+        <ComboBox x:Name="cmbDestination" Margin="10,143,10,0" VerticalAlignment="Top" Height="30" DropDownClosed="cmbDestination_DropDownClosed" BorderThickness="0.1" FontFamily="Calibri" FontSize="14">
+            <ComboBox.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF1D7EC7" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.BorderBrush>
+        </ComboBox>
+        <ComboBox x:Name="cmbAccomodationType" Margin="10,16,10,0" VerticalAlignment="Top" Height="30" DropDownClosed="cmbAccomodationType_DropDownClosed" BorderThickness="0.2" FontFamily="Calibri" FontSize="14" Grid.Row="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="12,51,0,0" VerticalAlignment="Top" Width="131" Content="Start Date" Grid.Row="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="12,104,0,0" VerticalAlignment="Top" Width="131" Content="End Date" Grid.Row="1"/>
+        <sdk:DatePicker x:Name="dteFrom" HorizontalAlignment="Left" Height="30" Margin="10,71,0,0" VerticalAlignment="Top" Width="336" IsDropDownOpen="False" FontSize="14" FontFamily="Calibri" Grid.Row="1"/>
+        <sdk:DatePicker x:Name="dte_To" HorizontalAlignment="Left" Height="30" Margin="10,118,0,0" VerticalAlignment="Top" Width="336" SelectedDateChanged="dte_To_SelectedDateChanged" FontSize="14" Grid.Row="1" FontFamily="Calibri"/>
+        <ig:XamGrid x:Name="grdData" Grid.Row="2" ColumnWidth="1*" Margin="11,1,1,0.322" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Rectangle Fill="#72FFFFFF" Height="119" Margin="0,24,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="23" Margin="9,86,0,0" VerticalAlignment="Top" Width="131" Content="Travel Allowance Rate" Grid.Column="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" VerticalAlignment="Top" Width="131" Content="Total" Grid.Row="1" Grid.Column="1"/>
+        <ig:XamNumericInput x:Name="txtPlaneFareRate" HorizontalAlignment="Left" Margin="11,59,0,0" VerticalAlignment="Top" Width="244" Height="22" FontFamily="Calibri" FontSize="14" Grid.Column="1" IsReadOnly="False" TextChanged="txtPlaneFareRate_TextChanged"/>
+        <ig:XamNumericInput x:Name="txtAllowanceRate" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="245" Height="22" FontFamily="Calibri" FontSize="14" IsReadOnly="True" Grid.Column="1"/>
+        <ig:XamNumericInput x:Name="txtTotal" HorizontalAlignment="Left" Margin="9,118,0,10" Width="244" FontFamily="Calibri" FontSize="14" IsReadOnly="False" Grid.Column="1" Grid.Row="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" VerticalAlignment="Top" Width="109" Content="Plane Fare Rate " Foreground="#FF2E2626" Grid.Column="1"/>
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="10,8,0,0" VerticalAlignment="Top" Width="131" Content="Rate Details" Grid.Column="1"/>
+        <Rectangle Fill="#3FF4F4F5" HorizontalAlignment="Left" Height="1" Margin="17,23,0,0" VerticalAlignment="Top" Width="333" Grid.Row="1"/>
+        <Image Grid.Column="3" Margin="11,141,12,7.322" Source="/MinDAF;component/Image/sigil.png" Stretch="Fill" Grid.Row="2" Grid.RowSpan="2"/>
+        <Button x:Name="btnSuspend" Content="Remove" Margin="4,1,12,147" Background="#FF1F3B4B" Grid.Column="3" Foreground="White" FontSize="14" FontFamily="Calibri" Grid.Row="2" Click="btnSuspend_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" Background="#FF449D44">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Grid x:Name="grdBR" Margin="1,10,1,0" Grid.Column="2" Grid.RowSpan="2" Height="265" VerticalAlignment="Top"/>
+        <RadioButton x:Name="procureRadioBtn" Content="Procure this item" Grid.Column="2" HorizontalAlignment="Left" Margin="10,126,0,0" Grid.Row="1" VerticalAlignment="Top" Height="17" Width="115" Visibility="Collapsed"/>
+    </Grid>
+</controls:ChildWindow>
